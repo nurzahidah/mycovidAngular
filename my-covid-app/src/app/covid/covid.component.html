@@ -64,4 +64,18 @@
   </form>
   <!-- Put record Ends  -->
 
+    <!-- Add Post Starts -->
+    <br><br><br>
+    <legend style="color:black;font-weight:bold;">Section D. Add Post record</legend>
+    <label for="Description">Description</label>
+    <input type="text" id="postDesc" [(ngModel)]="postDesc.description" name="post">
+    <p></p>
+    <input type="submit" value="Post" (click)="addPost()">
+
+    <!-- Add Post Ends -->
+
+      <!-- Section E and F Starts -->
+     <app-covid-delete></app-covid-delete>
+      <!--  Section E and F Ends -->
+
 </div>

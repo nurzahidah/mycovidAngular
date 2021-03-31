@@ -11,6 +11,7 @@ export class HelloComponent implements OnInit {
 
   constructor(
     // Inject your HTTP Client Service here
+    //Class object name:
     private httpClient: HttpClient,
 
     // Inject your Hello Service Here
@@ -20,7 +21,7 @@ export class HelloComponent implements OnInit {
     private confirmationDialogService: ConfirmationDialogService
     ) {     
   }
-
+//during start up the apps
   ngOnInit(): void {
     // onInit and Constructor difference
     // https://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit#:~:text=The%20main%20difference%20between%20constructor,how%20the%20code%20is%20structured.
@@ -38,7 +39,8 @@ export class HelloComponent implements OnInit {
   // Basic Method without calling a service
   public getBasicHello(): any {
     this.httpClient.get(`http://localhost:8081/covid/hello`, { responseType: 'text' })
-      .subscribe((data: any) => 
+      //after subscribe actions..subscribe the data from backend..data binding
+    .subscribe((data: any) => 
                   {
                     // no action yet
                   }
@@ -54,7 +56,7 @@ export class HelloComponent implements OnInit {
       .subscribe((data: any) => 
                   {
                     // assign HTTP response with local variable
-                    this.hello = data;
+                    this.hello = data; 
                   }
                 );   
   }
@@ -78,6 +80,7 @@ export class HelloComponent implements OnInit {
 
   public getLoggingWithPromise() {
       this.helloService.getLoggingWithPromise(this.input).then(
+        //need to do resolve if use getLoggingWithPromise
         resolve => {
 
           // this line below will be executed only after HTTP response is completed

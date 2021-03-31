@@ -5,11 +5,12 @@ import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-d
 import { GlobalConstants } from 'src/environments/GlobalConstants';
 import { GlobalMethods } from 'src/environments/GlobalMethods';
 import { CovidCasesDesc } from 'src/model/CovidCasesDesc';
+//import { resolve } from 'dns';
 
 @Component({
   selector: 'app-covid',
   providers: [CovidApiService],
-  styleUrls: ['./covid.component.css'],
+  styleUrls: ['../share/share.component.css'],
   templateUrl: './covid.component.html',
 
 })
@@ -26,6 +27,10 @@ export class CovidComponent implements OnInit {
 
   public updateDesc: any;
 
+  public postDesc: any;
+
+  
+
   constructor(
     private httpClient: HttpClient,
     public covidApiService: CovidApiService,
@@ -36,11 +41,14 @@ export class CovidComponent implements OnInit {
   ngOnInit(): void {
     this.descObject = {}; //{} = creating new object
     this.updateDesc = {};
+    this.postDesc = {};
+    
     this.getCovid();
     this.getCovidDesc();
+    
 
     console.log("Covid Component Inited");
-    console.log("Total of Description Column Row --->" + this.descObject.length);
+    
   }
 
   getCovid(): any {
@@ -61,11 +69,24 @@ export class CovidComponent implements OnInit {
     this.covidApiService.getCovidDesc().subscribe((data: any) => {
       console.log(data);
       this.covidTotalDesc = data;
+      console.log("Total of Description Table Rows --->" + this.covidTotalDesc.length);
     });
 
     return this.covidTotalDesc;
   }
+  //Another Solution
+  // async getCovidDesc(): Promise<any> {
+  //   await this.covidApiService.getCovidDesc().toPromise().then((data:any) => {
+  //     console.log(data);
+  //     this.covidTotalDesc = data;
+  //   });
 
+    
+  //   console.log("Covid Component Inited");
+  //   console.log("Total of Description Table Rows --->" + this.covidTotalDesc.length);
+    
+  //   return this.covidTotalDesc;
+  // }
   onSelectDesc(desc: any) {
 
     console.log("desc-->" + this.desc);
@@ -112,6 +133,7 @@ export class CovidComponent implements OnInit {
     }
   }
 
+    //TODO: Practical 7 - Complete the backend implementation only below
   putDesc() {
 
     this.covidApiService.putDesc(this.updateDesc).then(
@@ -119,4 +141,19 @@ export class CovidComponent implements OnInit {
         this.getCovidDesc();
       });
   }
+//TODO Practical 7
+//it should have a promise sync function
+//add resolve,table automatically updated
+addPost() {
+
+  this.covidApiService.addPost(this.postDesc).then(
+    resolve => {
+
+  //if the method below being called using async way,then the table desc wont be updated 
+  //accordingly after data added
+  this.getCovidDesc();
+});
+}
+
+
 }
