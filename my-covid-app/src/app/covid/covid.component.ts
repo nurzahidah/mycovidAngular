@@ -4,8 +4,7 @@ import { CovidApiService } from '../covidapi.service';
 import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog.service';
 import { GlobalConstants } from 'src/environments/GlobalConstants';
 import { GlobalMethods } from 'src/environments/GlobalMethods';
-import { CovidCasesDesc } from 'src/model/CovidCasesDesc';
-//import { resolve } from 'dns';
+
 
 @Component({
   selector: 'app-covid',
@@ -80,8 +79,6 @@ export class CovidComponent implements OnInit {
   //     console.log(data);
   //     this.covidTotalDesc = data;
   //   });
-
-    
   //   console.log("Covid Component Inited");
   //   console.log("Total of Description Table Rows --->" + this.covidTotalDesc.length);
     
