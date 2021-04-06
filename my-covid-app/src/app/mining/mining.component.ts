@@ -17,8 +17,8 @@ export class MiningComponent implements OnInit {
  { }
 
   ngOnInit(): void {
-
-      }
+       // This is intentional
+    }
       mining: string = '';
 
        // related to mining component exercise 

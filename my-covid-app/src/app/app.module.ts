@@ -13,7 +13,6 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
 import { HelloComponent } from './hello/hello.component';
 import { MiningComponent } from './mining/mining.component';
 import { BonusComponent } from './bonus/bonus.component';
-import { ShareComponent } from './share/share.component';
 import { CovidDeleteComponent } from './covid-delete/covid-delete.component';
 
 
@@ -28,7 +27,6 @@ import { CovidDeleteComponent } from './covid-delete/covid-delete.component';
     HelloComponent,
     MiningComponent,
     BonusComponent,
-    ShareComponent,
     CovidDeleteComponent
   ],
   imports: [

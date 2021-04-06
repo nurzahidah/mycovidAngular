@@ -8,9 +8,10 @@ export class GlobalMethods {
 
         if (error.status != undefined) {
             let status = error.status;
-            if (status == '404') {
+            if (status == '404' && status =='0' && error.message != undefined) {
                 return error.message;
             }
+
             else if (status == '500') {
 
 
@@ -28,20 +29,11 @@ export class GlobalMethods {
 
                     return error.error;
                 }
-
             }
-            else if (status == '0') {
-                return error.message;
-            }
-        }
-
-        else if (error.message != undefined) {
-            return error.message;
-        }
         else {
             return error;
         }
 
     }
-
+    }
 }

@@ -81,9 +81,6 @@ export class CovidComponent implements OnInit {
   //   });
   //   console.log("Covid Component Inited");
   //   console.log("Total of Description Table Rows --->" + this.covidTotalDesc.length);
-    
-  //   return this.covidTotalDesc;
-  // }
   onSelectDesc(desc: any) {
 
     console.log("desc-->" + this.desc);
@@ -130,7 +127,6 @@ export class CovidComponent implements OnInit {
     }
   }
 
-    //TODO: Practical 7 - Complete the backend implementation only below
   putDesc() {
 
     this.covidApiService.putDesc(this.updateDesc).then(
@@ -138,7 +134,7 @@ export class CovidComponent implements OnInit {
         this.getCovidDesc();
       });
   }
-//TODO Practical 7
+
 //it should have a promise sync function
 //add resolve,table automatically updated
 addPost() {
